@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUserApi } from '../api/api';
+import '../styles/CozyStyles.css';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -16,33 +17,72 @@ const Register = () => {
       await createUserApi({ name, email, password });
       navigate('/login');
     } catch (err) {
-      setError('Failed to register user. Please try again.');
+      setError('Failed to register. Please try again.');
     }
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center min-vh-100">
-      <div className="col-md-4">
-        <div className="card shadow p-4">
-          <h2 className="text-center mb-4">Register</h2>
-          {error && <div className="alert alert-danger">{error}</div>}
+    <div className="cozy-page">
+      <div className="cozy-card col-md-4">
+        <div className="cozy-card-body">
+          <h3 className="cozy-card-title text-center">Join the Cozy Club</h3>
+          {error && (
+            <div className="cozy-alert alert-dismissible fade show" role="alert">
+              {error}
+              <button
+                type="button"
+                className="btn-close"
+                onClick={() => setError(null)}
+              ></button>
+            </div>
+          )}
           <form onSubmit={handleRegister}>
             <div className="mb-3">
-              <label htmlFor="name" className="form-label">Name</label>
-              <input type="text" className="form-control" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+              <label htmlFor="name" className="form-label cozy-label">
+                Name
+              </label>
+              <input
+                type="text"
+                className="cozy-input form-control"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
             </div>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email</label>
-              <input type="email" className="form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <label htmlFor="email" className="form-label cozy-label">
+                Email
+              </label>
+              <input
+                type="email"
+                className="cozy-input form-control"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">Password</label>
-              <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              <label htmlFor="password" className="form-label cozy-label">
+                Password
+              </label>
+              <input
+                type="password"
+                className="cozy-input form-control"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </div>
-            <button type="submit" className="btn btn-primary w-100">Register</button>
+            <button type="submit" className="cozy-btn-primary">
+              <i className="bi bi-person-plus me-2"></i>
+              Sign Up
+            </button>
           </form>
-          <p className="mt-3 text-center">
-            Already have an account? <a href="/login">Login</a>
+          <p className="mt-3 text-center cozy-empty">
+            Already have an account? <a href="/login" className="cozy-link">Sign in</a>
           </p>
         </div>
       </div>

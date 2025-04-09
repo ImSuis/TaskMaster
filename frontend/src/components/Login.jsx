@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
+import '../styles/CozyStyles.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -16,30 +17,71 @@ const Login = () => {
       await login({ email, password });
       navigate('/dashboard');
     } catch (err) {
-      setError('Invalid email or password');
+      // Extract the specific error message from the backend response
+      const errorMessage = err.response?.data?.message || 'Something went wrong. Please try again.';
+      setError(errorMessage);
     }
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center min-vh-100">
-      <div className="col-md-4">
-        <div className="card shadow p-4">
-          <h2 className="text-center mb-4">Login</h2>
-          {error && <div className="alert alert-danger">{error}</div>}
-          {isLoading && <p>Loading...</p>}
+    <div className="cozy-page">
+      <div className="cozy-card col-md-4">
+        <div className="cozy-card-body">
+          <h3 className="cozy-card-title text-center">Welcome Back</h3>
+          {error && (
+            <div className="cozy-alert alert-dismissible fade show" role="alert">
+              {error}
+              <button
+                type="button"
+                className="btn-close"
+                onClick={() => setError(null)}
+              ></button>
+            </div>
+          )}
           <form onSubmit={handleLogin}>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email</label>
-              <input type="email" className="form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <label htmlFor="email" className="form-label cozy-label">
+                Email
+              </label>
+              <input
+                type="email"
+                className="cozy-input form-control"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={isLoading}
+              />
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">Password</label>
-              <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              <label htmlFor="password" className="form-label cozy-label">
+                Password
+              </label>
+              <input
+                type="password"
+                className="cozy-input form-control"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                disabled={isLoading}
+              />
             </div>
-            <button type="submit" className="btn btn-primary w-100" disabled={isLoading}>Login</button>
+            <button
+              type="submit"
+              className="cozy-btn-primary"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <span className="spinner-border spinner-border-sm me-2 cozy-spinner" role="status"></span>
+              ) : (
+                <i className="bi bi-door-open me-2"></i>
+              )}
+              Sign In
+            </button>
           </form>
-          <p className="mt-3 text-center">
-            Don't have an account? <a href="/register">Register</a>
+          <p className="mt-3 text-center cozy-empty">
+            Need an account? <a href="/register" className="cozy-link">Sign up</a>
           </p>
         </div>
       </div>

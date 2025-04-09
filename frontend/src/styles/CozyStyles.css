@@ -1,0 +1,214 @@
+body {
+    background-color: #f5e9e2; 
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #5c4033; 
+}
+  
+/* Header */
+.cozy-header {
+    background-color: #d9b99b; 
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.cozy-header h1 {
+    font-family: 'Georgia', serif;
+    color: #5c4033;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.cozy-btn-logout {
+    background-color: #a67c5b; /* Warm brown */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-family: 'Georgia', serif;
+    transition: background-color 0.3s ease;
+}
+
+.cozy-btn-logout:hover {
+    background-color: #8a6f5b;
+}
+
+/* Main Content */
+.cozy-container {
+    padding: 3rem 0;
+}
+
+.cozy-greeting h2 {
+    font-family: 'Georgia', serif;
+    color: #5c4033;
+    margin: 1rem 0 0 0;
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+
+.cozy-greeting p {
+    color: #8a6f5b; /* Muted brown */
+    font-size: 1.1rem;
+}
+
+/* Cards */
+.cozy-card {
+    background-color: #fff7f0; 
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.cozy-card-body {
+    padding: 2rem; 
+}
+
+/* Card Title and Content */
+.cozy-card-title {
+    font-family: 'Georgia', serif;
+    color: #5c4033;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem; 
+    margin-top: 0;
+}
+
+/* Form Elements */
+.cozy-input {
+    background-color: #fff7f0;
+    border-color: #d9b99b;
+    color: #5c4033;
+    font-family: 'Arial', sans-serif;
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+.cozy-input::placeholder {
+    color: #8a6f5b;
+}
+
+.cozy-textarea {
+    background-color: #fff7f0;
+    border-color: #d9b99b;
+    color: #5c4033;
+    font-family: 'Arial', sans-serif;
+    border-radius: 8px;
+    padding: 0.75rem;
+    resize: vertical;
+}
+
+.cozy-btn-primary {
+    background-color: #c68a6e;
+    border: none;
+    color: #fff;
+    font-family: 'Georgia', serif;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem; 
+}
+
+.cozy-btn-primary:hover {
+background-color: #a67c5b; /* Darker coral */
+}
+
+
+.cozy-alert {
+    background-color: #f8d7c8; 
+    border: none;
+    color: #8a6f5b;
+    border-radius: 8px;
+    padding: 1rem; 
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem; /* Added slight space above for separation */
+}
+
+/* Task Cards */
+.cozy-task-card {
+    background-color: #fff7f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: none;
+    transition: transform 0.2s ease;
+    margin-bottom: 1rem;
+}
+
+.cozy-task-card:hover {
+    transform: translateY(-5px);
+}
+
+.cozy-task-card .card-body {
+    padding: 1.5rem; /* Increased padding for task cards */
+}
+
+.cozy-task-title {
+    font-family: 'Georgia', serif;
+    color: #5c4033;
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem; 
+    margin-top: 0;
+}
+
+.cozy-task-desc {
+    color: #8a6f5b;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* Delete Button */
+.cozy-btn-delete {
+    background-color: #e8b9a4; /* Peach */
+    border: none;
+    color: #5c4033;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.cozy-btn-delete:hover {
+    background-color: #d9a589; /* Darker peach */
+}
+
+/* Empty State */
+.cozy-empty {
+    color: #8a6f5b;
+    font-size: 1.2rem;
+}
+
+.cozy-empty i {
+    color: #c68a6e; /* Warm coral */
+}
+
+/* Spinner */
+.cozy-spinner {
+    color: #c68a6e ;
+}
+
+/* Centered Pages (Login/Register) */
+.cozy-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cozy-link {
+color: #c68a6e;
+    text-decoration: none;
+}
+
+.cozy-link:hover {
+    text-decoration: underline;
+}
+
+.cozy-label {
+    color: #8a6f5b;
+    font-size: 1rem;
+    margin-bottom: 0.5rem; 
+}
