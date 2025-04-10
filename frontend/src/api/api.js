@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const Api = axios.create({
-    baseURL: 'http://localhost:4001/api',
+    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:4001/api', // Use Render URL via env var
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",
@@ -24,7 +24,6 @@ Api.interceptors.request.use(
 
 export const createUserApi = (data) => Api.post("/users/register", data);
 
-
 export const loginUserApi = async (data) => {
     try {
       const response = await Api.post("/users/login", data);
@@ -41,7 +40,7 @@ export const logoutUser = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 };
-  
+
 // Task-related API calls
 export const getTasksApi = async () => {
   try {
@@ -70,6 +69,4 @@ export const deleteTaskApi = async (taskId) => {
   }
 };
 
-
 export default Api;
-  
